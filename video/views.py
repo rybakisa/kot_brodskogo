@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from django.views import generic
+from .models import *
 
-# Create your views here.
+
+class VideosList(generic.ListView):
+    model = Video
+    template_name = 'video/videos_list.html'
+    context_object_name = 'videos'
+
+
+class VideoDetail(generic.DetailView):
+    model = Video
+    template_name = 'video/video_details.html'
+    context_object_name = 'video'

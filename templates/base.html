@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Кот Бродского | {% block title %}{% endblock %}</title>
+    {% block includes %}
+    {% endblock %}
+</head>
+<body>
+    <h1>Кот Бродского</h1>
+    <img src="{% static "kot.png" %}" alt="Kot">
+    <br>
+    <a href="{% url 'main_page:index' %}">Главная</a>
+    <a href="{% url 'video:videos-list' %}">Видосики</a>
+    <a href="{% url 'library:readings-list' %}">Библиотека</a>
+    <a href="{% url 'calendar:google-calendar' %}">Календарь</a>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

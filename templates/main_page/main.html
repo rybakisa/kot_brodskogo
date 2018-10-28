@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block body %}
+    <h2>Главная</h2>
+    <img src="{% static "main_page/example3.png" %}" alt="Kot">
+    <br>
+    <a href="{% url 'video:videos-list' %}">Что посмотреть</a><br>
+    <a href="{% url 'library:readings-list' %}">Что почитать</a><br>
+    <a href="{% url 'calendar:google-calendar' %}">Куда сходить</a><br>
+    <ul>
+        {% for scene in scenes %}
+            <li>
+            {% if scene.file_video %}
+                <video width="auto" controls>
+                    <source src="{{ scene.file_video.url }}">
+                    Your browser does not support HTML5 video.
+                </video>
+            {% endif %}
+            <br>
+            {% if scene.html_content %}
+                {{ scene.html_content | safe }}
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

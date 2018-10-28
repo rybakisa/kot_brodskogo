@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Видосик{% endblock %}
+
+{% block body %}
+    <h2>Видосик: "{{ video.name }}"</h2>
+    <div>{{ video.html_embed_code }}</div>
+    <div>{{ video.html_description | safe }}</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Календарь{% endblock %}
+
+{% block body %}
+    <h2>Календарь</h2>
+    <img src="{% static "events_calendar/example1.png" %}" alt="Kot">
+    <br>
+    <div>{{ calendar.html_emded_code | safe }}</div>
+{% endblock %}
