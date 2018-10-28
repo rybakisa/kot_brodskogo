@@ -18,5 +18,5 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-4. Open server URL iin browser
+4. Open server URL in browser
 5. Navigate to `/admin` and login with `admin` username with `admin` password
