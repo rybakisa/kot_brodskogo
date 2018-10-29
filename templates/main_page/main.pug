@@ -1,0 +1,29 @@
+extends ../base.pug
+- load static
+
+block title
+    |  Главная
+
+block body
+    h2 Главная
+    img(src='static/main_page/example3.png', alt='kot')
+    br
+    - url 'video:videos-list' as videos
+    a(href=videos) Что посмотреть
+    br
+    - url 'library:readings-list' as library
+    a(href=library) Что почитать
+    br
+    - url 'calendar:google-calendar' as calendar
+    a(href=calendar) Куда сходить
+    br
+    ul
+        for scene in scenes
+            li
+                if scene.file_video
+                    video(width='auto', controls)
+                        source(src=scene.file_video.url)
+                        | Your browser does not support HTML5 video.
+                br
+                if scene.html_content
+                    {{ scene.html_content | safe }}

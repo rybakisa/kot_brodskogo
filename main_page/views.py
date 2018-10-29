@@ -3,7 +3,7 @@ from .models import *
 
 
 class IndexView(generic.TemplateView):
-    template_name = 'main_page/main.html'
+    template_name = 'main_page/main.pug'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
