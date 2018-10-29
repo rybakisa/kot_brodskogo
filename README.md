@@ -1,12 +1,8 @@
 # kot_brodskogo
 
-1. Install dependencies
+## Install
 
-```sh
-pip install -r requirements.txt
-```
-
-2. Initialize project
+1. Initialize project
 
 ```sh
 ./install.sh
@@ -20,3 +16,9 @@ python manage.py runserver
 
 4. Open server URL in browser
 5. Navigate to `/admin` and login with `admin` username with `admin` password
+
+## Update
+
+```sh
+./update.sh
+```
