@@ -1,0 +1,7 @@
+extends base
+- url 'main_page:index' as main
+block body
+	a.logo(href=main title='Вернуться на главную')
+		include /static/kot-brodskogo-logo.svg
+	.container: .content
+		block content

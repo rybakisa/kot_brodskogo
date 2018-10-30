@@ -1,0 +1,9 @@
+@import '~normalize.css/normalize.css';
+@import 'styles/settings';
+@import 'styles/essentials';
+@import 'styles/elements';
+@import '../templates/layouts/layout';
+@import '../templates/main_page/nav-screen/nav-screen';
+@import '../templates/library/resources/library';
+@import '../templates/video/resources/videos';
+@import '../templates/events_calendar/resources/calendar';

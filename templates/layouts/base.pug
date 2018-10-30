@@ -1,0 +1,40 @@
+- load static
+doctype html
+mixin manifest(scope)
+	link(rel='apple-touch-icon' sizes='180x180' href='/manifest/apple-touch-icon.png')
+	link(rel='icon' type='image/png' sizes='32x32' href='/manifest/favicon-32x32.png')
+	link(rel='icon' type='image/png' sizes='16x16' href='/manifest/favicon-16x16.png')
+	link(rel='manifest' href='/manifest/site.webmanifest')
+	link(rel='mask-icon' href='/manifest/safari-pinned-tab.svg' color='#f5b233')
+	meta(name='apple-mobile-web-app-title' content='Кот Бродского')
+	meta(name='application-name' content='Кот Бродского')
+	meta(name='msapplication-TileColor' content='#ffffff')
+	meta(name='theme-color' content='#ffffff')
+html.no-js(lang='ru')
+	head
+		meta(charset='utf-8')
+		title Кот Бродского
+			|  |
+			block title
+		meta(name='description' content='Проект про книги, город, людей, котов, бабушкин ундервуд и старую шляпу.')
+		meta(name='title' content='Кот Бродского')
+		//+manifest(scope)
+		meta(name='viewport' content='width=device-width initial-scale=1.0')
+		block includes
+		block styles
+			link(rel='stylesheet' href='/static/build/script.css')
+			link(rel='stylesheet' href='/static/build/style.css')
+		script#js-init.
+			window.rootElement = document.documentElement;
+			rootElement.classList.remove('no-js');
+			rootElement.classList.add('js');
+			window['site'] = {
+				description: 'Кот Бродского − это проект про книги, город, людей, котов, бабушкин ундервуд и старую шляпу.'
+			};
+		block vendorStyles
+	body
+		block body
+		block scripts
+			script(src='/static/build/manifest.js')
+			script(src='/static/build/vendor.js')
+			script(src='/static/build/script.js')

@@ -1,0 +1,33 @@
+extends ../layouts/default
+block content
+	include ./resources/library
+append vendorStyles
+	// Yeseva One
+	//	regular 400
+	link(href='https://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet')
+	// Oranienbaum
+	//	regular 400
+	link(href='https://fonts.googleapis.com/css?family=Oranienbaum' rel='stylesheet')
+	// Roboto Slab
+	//	thin 100
+	//	light 300
+	//	regular 400
+	//	bold 700
+	link(href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet')
+//	{% extends "base.html" %}
+//	{% load static %}
+//
+//	{% block title %}Библиотека{% endblock %}
+//
+//	{% block body %}
+//		<h2>Библиотека</h2>
+//		<img src="{% static "library/example2.jpg" %}" alt="Kot">
+//		<br>
+//		<ul>
+//			{% for reading in readings %}
+//				<li>
+//					<a href="{% url 'library:reading-details' reading.slug %}">{{ reading.name }}</a>
+//				</li>
+//			{% endfor %}
+//		</ul>
+//	{% endblock %}

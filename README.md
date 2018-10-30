@@ -1,5 +1,11 @@
 # kot_brodskogo
 
+## Requirements
+
+ * Python `.python-version`
+ * Node.js `.nvmrc`
+ * Yarn `.yvmrc`
+
 ## Install
 
 1. Initialize project

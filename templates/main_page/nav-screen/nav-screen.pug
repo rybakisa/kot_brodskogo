@@ -1,0 +1,36 @@
+- url 'video:videos-list' as videos
+- url 'library:readings-list' as library
+- url 'calendar:google-calendar' as calendar
+#intro.videoPresentation(intro): intro
+nav.navLayer
+	ul.nav
+		mixin navItem(link, label, image, name)
+			li.nav-item(
+			class='nav-item_{{ name }}'
+			)
+				a.navLink(href='{{ link }}' title='{{ label }}')
+					span.navLink-label {{ label }}
+					img.navLink-image(
+					src='{{ image }}'
+					alt='{{ label }}'
+					)
+		+navItem(library, 'библиотека', '/static/nav-screen/buttons/library.png', 'library')
+		+navItem(videos, 'видео', '/static/nav-screen/buttons/videos.png', 'videos')
+		+navItem(calendar, 'календарь событий', '/static/nav-screen/buttons/calendar.png', 'calendar')
+	ul.externalLinks
+		mixin externalLink(link, label, image)
+			li.externalLinks-item
+				a.externalLink(
+				href='{{ link }}'
+				target='_blank'
+				title='{{ label }}'
+				)
+					img.externalLink-image(
+					src='{{ image }}'
+					alt='{{ label }}'
+					)
+		+externalLink('https://vk.com/kotbrodskogo', 'VK', '/static/icons/vk.svg')
+		+externalLink('https://www.facebook.com/kotbrodskogo', 'Facebook', '/static/icons/facebook.svg')
+		+externalLink('http://instagram.com/kotbrodskogo', 'Instagram', '/static/icons/instagram.svg')
+		+externalLink('https://www.youtube.com/channel/UC1F114JmC9CetaTmDMwtx6w', 'YouTube', '/static/icons/youtube.svg')
+		+externalLink('https://t.me/kotbrodskogo', 'Telegram', '/static/icons/telegram.svg')
