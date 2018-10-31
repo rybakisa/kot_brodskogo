@@ -1,54 +1,24 @@
--
-	const videos = [
-		{
-			label: 'Кот Бродского. ДВФУ #2 | Владимир Сорокин «Пир» | Иван Кумец',
-			image: '/content/videos/1.jpg',
-			length: '17:09',
-			link: '/videos/video1',
-		},
-		{
-			label: 'Кот Бродского. ДВФУ #2 | Салман Рушди «Дети полуночи» | Иван Василенко',
-			image: '/content/videos/2.jpg',
-			length: '20:46',
-			link: '/videos/video2',
-		},
-		{
-			label: 'Кот Бродского. ДВФУ #2 | Гузель Яхина «Зулейха открывает глаза» | Екатерина Кудряшова',
-			image: '/content/videos/3.jpg',
-			length: '27:33',
-			link: '/videos/video3',
-		},
-		{
-			label: 'Кот Бродского. ДВФУ #2 | Джоанн Харрис «Шоколад» | Савелий Лексин',
-			image: '/content/videos/4.jpg',
-			length: '24:14',
-			link: '/videos/video4',
-		},
-		{
-			label: 'Кот Бродского. ДВФУ #2 | Джулия Эндерс «Очаровательный кишечник» | Анастасия Нерадько',
-			image: '/content/videos/5.jpg',
-			length: '16:15',
-			link: '/videos/video5',
-		},
-		{
-			label: 'Кот Бродского. Подростки | Мари-Од Мюрай «Oh, boy!» | Богдан Бобылев',
-			image: '/content/videos/6.jpg',
-			length: '26:09',
-			link: '/videos/video6',
-		},
-	]
 h2.libraryTitle Видео
 .videosShelf
-	for video in videos
-		a.videosShelf-item(href=video.link)
+	mixin video(label, image, length, link)
+		a.videosShelf-item(href='{{ link }}')
 			article.videosShelf-item--layout
 				figure.videosShelf-item-image
-					//src=resizeImage(video.image, 400, 220)
-					//srcset=`${resizeImage(video.image, 400 * 1.5, 220 * 1.5)} 2x`
+					//-src=resizeImage('{{ image }}', 400, 220)
+					//-srcset=`${resizeImage('{{ image }}', 400 * 1.5, 220 * 1.5)} 2x`
 					img(
-					src=video.image
-					alt!=video.label
+					src='{{ image }}'
+					alt='{{ label }}'
 					)
-					figcaption.videosShelf-item-length=video.length
+					figcaption.videosShelf-item-length
+						| {{ length }}
 				h4.videosShelf-item-label
-					!=video.label
+					| {{ label }}
+	//-for video in videos
+	//-	a(href="{% url 'video:video-details' video.slug %}") {{ video.name }}
+	+video('Кот Бродского. ДВФУ #2 | Владимир Сорокин «Пир» | Иван Кумец', '/static/content/videos/1.jpg', '17:09', '/videos/video1')
+	+video('Кот Бродского. ДВФУ #2 | Салман Рушди «Дети полуночи» | Иван Василенко', '/static/content/videos/2.jpg', '20:46', '/videos/video2')
+	+video('Кот Бродского. ДВФУ #2 | Гузель Яхина «Зулейха открывает глаза» | Екатерина Кудряшова', '/static/content/videos/3.jpg', '27:33', '/videos/video3')
+	+video('Кот Бродского. ДВФУ #2 | Джоанн Харрис «Шоколад» | Савелий Лексин', '/static/content/videos/4.jpg', '24:14', '/videos/video4')
+	+video('Кот Бродского. ДВФУ #2 | Джулия Эндерс «Очаровательный кишечник» | Анастасия Нерадько', '/static/content/videos/5.jpg', '16:15', '/videos/video5')
+	+video('Кот Бродского. Подростки | Мари-Од Мюрай «Oh, boy!» | Богдан Бобылев', '/static/content/videos/6.jpg', '26:09', '/videos/video6')

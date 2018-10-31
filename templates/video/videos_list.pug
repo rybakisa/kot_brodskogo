@@ -1,4 +1,6 @@
 extends ../layouts/default
+block title
+	| Видео
 block content
 	include ./resources/videos
 append vendorStyles
@@ -8,21 +10,3 @@ append vendorStyles
 		regular 400
 		bold 700
 	link(href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet')
-//
-	{% extends "base.html" %}
-	{% load static %}
-
-	{% block title %}Видосики{% endblock %}
-
-	{% block body %}
-		<h2>Видосики</h2>
-		<img src="{% static "video/example4.jpg" %}" alt="Kot">
-		<br>
-		<ul>
-			{% for video in videos %}
-				<li>
-					<a href="{% url 'video:video-details' video.slug %}">{{ video.name }}</a>
-				</li>
-			{% endfor %}
-		</ul>
-	{% endblock %}

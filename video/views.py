@@ -4,7 +4,7 @@ from .models import *
 
 class VideosList(generic.ListView):
     model = Video
-    template_name = 'video/videos_list.html'
+    template_name = 'video/videos_list.pug'
     context_object_name = 'videos'
 
 
