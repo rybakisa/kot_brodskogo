@@ -7,7 +7,7 @@
 		@click='logoClick'
 		:title='logoTitle'
 		)
-			include ../../../static/kot-brodskogo-logo.svg
+			include ../../assets/kot-brodskogo-logo.svg
 		.unlock(
 		:class="{ 'hidden': step > 2 }"
 		): unlock(

@@ -1,79 +1,31 @@
--
-	const articles =
-		[
-			{
-				title: 'Щенок',
-				author: 'Джордж Сондерс',
-				description: 'Повесть с кукурузным полем и&nbsp;американскими именами в&nbsp;переводе Марии Ереминой',
-				image: '/content/library/6ctnlfxgbf8.jpg',
-				link: '/library/read1'
-			},
-			{
-				title: 'Скелет. Готический рассказ',
-				author: 'Иван Ахмадиев',
-				description: 'от&nbsp;первого лица из&nbsp;уст одной девушки',
-				image: '/content/library/ahmadiev_skelet.jpg',
-				link: '/library/read2'
-			},
-			{
-				title: 'Сказка о&nbsp;Часовщике',
-				author: 'Ольга Аристова',
-				description: 'Всем известно — на&nbsp;небе живет Часовщик, он латает планеты и&nbsp;строит их в&nbsp;ряд',
-				image: '/content/library/час(5).jpg',
-				link: '/library/read3'
-			},
-			{
-				title: 'Повесть о&nbsp;чучеле, Тигровой Шапке и&nbsp;Малом Париже. Глава из&nbsp;книги.',
-				author: 'Константин Дмитриенко',
-				description: '',
-				image: '/content/library/1517018008036.jpg',
-				link: '/library/read4'
-			},
-			{
-				title: 'Возлюбить ближнего. Отрывок из&nbsp;пьесы',
-				author: 'Виктория Костюкевич',
-				description: 'Трое молодых людей в&nbsp;поезде от&nbsp;Владивостока до&nbsp;Москвы',
-				image: '/content/library/кост(10).jpg',
-				link: '/library/read5'
-			},
-			{
-				title: 'Повесть о&nbsp;чучеле, Тигровой Шапке и&nbsp;Малом Париже. Глава из&nbsp;книги.',
-				author: 'Константин Дмитриенко',
-				description: '',
-				image: '/content/library/1517018008036.jpg',
-				link: '/library/read6'
-			},
-			{
-				title: 'Щенок',
-				author: 'Джордж Сондерс',
-				description: 'Повесть с кукурузным полем и&nbsp;американскими именами в&nbsp;переводе Марии Ереминой',
-				image: '/content/library/6ctnlfxgbf8.jpg',
-				link: '/library/read7'
-			},
-			{
-				title: 'Скелет. Готический рассказ',
-				author: 'Иван Ахмадиев',
-				image: '/content/library/ahmadiev_skelet.jpg',
-				description: 'от&nbsp;первого лица из&nbsp;уст одной девушки',
-				link: '/library/read8'
-			},
-		]
+- load static
 h2.libraryTitle Библиотека
 .libraryShelf
-	for article in articles
-		a.libraryShelf-item(href=article.link)
+	mixin article(title, author, description, image, link)
+		//- a.libraryShelf-item(href="{% url 'library:reading-details' link %}")
+		a.libraryShelf-item(href='{{ link }}')
 			article.libraryShelf-item--layout
 				p.libraryShelf-item-author
-					!=article.author
+					| {{ author }}
 				h4.libraryShelf-item-title
-					!=article.title
-				if article.description
+					| {{ title }}
+				if description
 					p.libraryShelf-item-description
-						!=article.description
+						| {{ description }}
 				figure.libraryShelf-item-image
-					src=resizeImage(article.image, 200, 150)
-					srcset=`${resizeImage(article.image, 200*1.5, 150*1.5)} 2x`
+					//-src=resizeImage(article.image, 200, 150)
+					//-srcset=`${resizeImage(article.image, 200*1.5, 150*1.5)} 2x`
 					img(
-					src=article.image
-					alt!=article.title
+					src='{{ image }}'
+					alt!='{{ title }}'
 					)
+	//- for reading in readings
+	//-	+article(reading.name, 'author', 'description', 'image', reading.slug)
+	+article('Щенок', 'Джордж Сондерс', 'Повесть с кукурузным полем и&nbsp;американскими именами в&nbsp;переводе Марии Ереминой', '/static/content/library/6ctnlfxgbf8.jpg', '/library/read1')
+	+article('Скелет. Готический рассказ', 'Иван Ахмадиев', 'от&nbsp;первого лица из&nbsp;уст одной девушки', '/static/content/library/ahmadiev_skelet.jpg', '/library/read2')
+	+article('Сказка о&nbsp;Часовщике', 'Ольга Аристова', 'Всем известно — на&nbsp;небе живет Часовщик, он латает планеты и&nbsp;строит их в&nbsp;ряд', '/static/content/library/час(5).jpg', '/library/read3')
+	+article('Повесть о&nbsp;чучеле, Тигровой Шапке и&nbsp;Малом Париже. Глава из&nbsp;книги.', 'Константин Дмитриенко', '', '/static/content/library/1517018008036.jpg', '/library/read4')
+	+article('Возлюбить ближнего. Отрывок из&nbsp;пьесы', 'Виктория Костюкевич', 'Трое молодых людей в&nbsp;поезде от&nbsp;Владивостока до&nbsp;Москвы', '/static/content/library/кост(10).jpg', '/library/read5')
+	+article('Повесть о&nbsp;чучеле, Тигровой Шапке и&nbsp;Малом Париже. Глава из&nbsp;книги.', 'Константин Дмитриенко', '', '/static/content/library/1517018008036.jpg', '/library/read6')
+	+article('Щенок', 'Джордж Сондерс', 'Повесть с кукурузным полем и&nbsp;американскими именами в&nbsp;переводе Марии Ереминой', '/static/content/library/6ctnlfxgbf8.jpg', '/library/read7')
+	+article('Скелет. Готический рассказ', 'Иван Ахмадиев', 'от&nbsp;первого лица из&nbsp;уст одной девушки', '/static/content/library/ahmadiev_skelet.jpg', '/library/read8')

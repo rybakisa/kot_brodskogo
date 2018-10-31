@@ -4,7 +4,7 @@ from .models import *
 
 class ReadingsList(generic.ListView):
     model = ReadingMaterial
-    template_name = 'library/readings_list.html'
+    template_name = 'library/readings_list.pug'
     context_object_name = 'readings'
 
 

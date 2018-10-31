@@ -1,7 +1,7 @@
-extends base
-- url 'main_page:index' as main
+extends ./base
 block body
+	- url 'main_page:index' as main
 	a.logo(href=main title='Вернуться на главную')
-		include /static/kot-brodskogo-logo.svg
+		include ../assets/kot-brodskogo-logo.svg
 	.container: .content
 		block content

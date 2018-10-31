@@ -1,4 +1,6 @@
 extends ../layouts/default
+block title
+	| Библиотека
 block content
 	include ./resources/library
 append vendorStyles
@@ -14,20 +16,4 @@ append vendorStyles
 	//	regular 400
 	//	bold 700
 	link(href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet')
-//	{% extends "base.html" %}
-//	{% load static %}
-//
-//	{% block title %}Библиотека{% endblock %}
-//
-//	{% block body %}
-//		<h2>Библиотека</h2>
-//		<img src="{% static "library/example2.jpg" %}" alt="Kot">
-//		<br>
-//		<ul>
-//			{% for reading in readings %}
-//				<li>
-//					<a href="{% url 'library:reading-details' reading.slug %}">{{ reading.name }}</a>
-//				</li>
-//			{% endfor %}
-//		</ul>
-//	{% endblock %}
+
