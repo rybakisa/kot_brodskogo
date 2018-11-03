@@ -3,7 +3,7 @@ from .models import *
 
 
 class CalendarView(generic.TemplateView):
-    template_name = 'events_calendar/calendar.html'
+    template_name = 'events_calendar/calendar.pug'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
