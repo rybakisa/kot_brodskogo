@@ -10,5 +10,5 @@ class VideosList(generic.ListView):
 
 class VideoDetail(generic.DetailView):
     model = Video
-    template_name = 'video/video_details.html'
+    template_name = 'video/video_details.pug'
     context_object_name = 'video'

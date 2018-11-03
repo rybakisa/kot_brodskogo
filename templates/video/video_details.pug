@@ -1,0 +1,12 @@
+extends ../layouts/default
+block title
+    | {{ video.name }} — Видео
+block content
+    include ./resources/single-video
+append vendorStyles
+    // Roboto Slab
+        thin 100
+        light 300
+        regular 400
+        bold 700
+    link(href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet')
