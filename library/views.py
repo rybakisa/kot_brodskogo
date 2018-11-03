@@ -10,5 +10,5 @@ class ReadingsList(generic.ListView):
 
 class ReadingDetail(generic.DetailView):
     model = ReadingMaterial
-    template_name = 'library/reading_details.html'
+    template_name = 'library/reading_details.pug'
     context_object_name = 'reading'

@@ -1,16 +1,12 @@
 extends ../layouts/default
 block title
-	| Библиотека
+	| {{ reading.name }} — Библиотека
 block content
-	include ./resources/library
+	include ./resources/single-reading
 append vendorStyles
-	// Oranienbaum
-	//	regular 400
-	link(href='https://fonts.googleapis.com/css?family=Oranienbaum&amp;subset=cyrillic' rel='stylesheet')
 	// Roboto Slab
 	//	thin 100
 	//	light 300
 	//	regular 400
 	//	bold 700
 	link(href='https://fonts.googleapis.com/css?family=Roboto+Slab&amp;subset=cyrillic' rel='stylesheet')
-

@@ -1,13 +1,16 @@
 # Python
-.env
-db.sqlite3
-dev-server.log
+/.env
+/db.sqlite3
+/dev-server.log
 __pycache__
-main/
+/main
+/locale
+/media
 
 # Node
 /node_modules
 /static/build
+/resources/assets/
 /yarn-error.log
 .env-dev
 /webpack.config.compiled.js
