@@ -1,3 +1,4 @@
-div {{ video.html_emded_code | safe }}
-h2.libraryShelf-item-title {{ video.name }}
-.libraryShelf-item-description {{ video.html_description | safe }}
+.singleVideo-video
+	.responsiveEmbed {{ video.html_emded_code | safe }}
+h2.singleVideo-title {{ video.name }}
+.singleVideo-description {{ video.html_description | safe | linebreaks }}

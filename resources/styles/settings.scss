@@ -2,3 +2,6 @@ $gutter: 1em;
 //$font-display-serif: 'Yeseva One', serif;
 $font-display-serif: 'Oranienbaum', serif;
 $font-sans-slab: 'Roboto Slab', sans-serif;
+@function aspect-ratio($width, $height) {
+	@return (($height / $width) * 100%);
+}
