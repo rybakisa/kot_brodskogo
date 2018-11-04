@@ -17,11 +17,11 @@
 		)
 		p.text.text2(
 		ref='text2'
-		v-if='text.parts && step === 2'
+		v-if='step2video.text.parts && step === 2'
 		)
-			template(v-for='letter in text.visible')
+			template(v-for='letter in step2video.text.visible')
 				span(v-html='letter')
-			template(v-for='letter in text.hidden')
+			template(v-for='letter in step2video.text.hidden')
 				span.invisible(v-html='letter')
 		video.video.video1(
 		muted playsinline preload='auto'
@@ -136,20 +136,23 @@
 				videoPaused: true,
 				step: 1,
 				counter: 0,
-				text: {
-					speed: 2,
-					string: null,
-					parts: [],
-					visible: [],
-					hidden: [],
-				},
 				step1video: {
+				    preplay: null,
+                    postplay: null,
 					url: null,
 					type: null,
 				},
 				step2video: {
+                    postplay: null,
 					url: null,
 					type: null,
+                    text: {
+                        speed: 2,
+                        string: null,
+                        parts: [],
+                        visible: [],
+                        hidden: [],
+                    },
 				},
 			}
 		},
@@ -160,11 +163,16 @@
 			if (skipIntro) {
 				this.step = 3
 			}
-			this.text.string = externalStorage.description
+
+			this.step1video.preplay = externalStorage.step1video.preplay
+			this.step1video.postplay = externalStorage.step1video.postplay
 			this.step1video.url = externalStorage.step1video.url
 			this.step1video.type = externalStorage.step1video.type
+
+            this.step2video.postplay = externalStorage.step2video.postplay
 			this.step2video.url = externalStorage.step2video.url
 			this.step2video.type = externalStorage.step2video.type
+			this.step2video.text.string = externalStorage.step2video.text
 		},
 		mounted() {
 			if (debugStep2) {
@@ -200,7 +208,7 @@
 				if (this.step === navStep) {
 					this.step = 1
 					this.initStep1()
-					this.playVideo(2000)
+					this.playVideo(this.step1video.preplay)
 				} else {
 					this.step = navStep
 					localStorage.setItem('skipIntro', 'true')
@@ -211,7 +219,7 @@
 				if (newVal > oldVal && this.interactive) {
 					this.playVideo(300)
 					this.counter = this.counter + 1
-					this.updateTextData(this.counter + this.text.speed)
+					this.updateTextData(this.counter + this.step2video.text.speed)
 				}
 			},
 			initStep1() {
@@ -231,15 +239,15 @@
 					clearTimeout(goToStep3)
 					this.step = 1
 					this.isVideoLoading = false
-					this.playVideo(2000)
+					this.playVideo(this.step1video.preplay)
 				}, false)
 			},
 			initStep2() {
 				this.counter = 0
 				video = this.$refs['video2']
-				this.text.parts = this.text.string.split('')
-				this.text.visible = []
-				this.text.hidden = []
+				this.step2video.text.parts = this.step2video.text.string.split('')
+				this.step2video.text.visible = []
+				this.step2video.text.hidden = []
 				this.step = 2
 				if (debugStep2) {
 					this.updateTextData(1000)
@@ -254,7 +262,7 @@
 				let time
 				switch (this.step) {
 					case 1:
-						time = 3000
+						time = this.step1video.postplay
 						this.playVideo(time)
 						step2timeout = setTimeout(() => {
 							console.log('case 1')
@@ -265,12 +273,12 @@
 						}, time)
 						break
 					case 2:
-						time = 5000
+						time = this.step2video.postplay
 						this.playVideo(time)
 						localStorage.setItem('skipIntro', 'true')
 						step3interval = setInterval(() => {
 							this.counter = this.counter + 1
-							this.updateTextData(this.counter + this.text.speed)
+							this.updateTextData(this.counter + this.step2video.text.speed)
 						}, 20)
 						step3timeout = setTimeout(() => {
 							console.log('case 2')
@@ -297,9 +305,9 @@
 				video.pause()
 			},
 			updateTextData(progress = 0) {
-				const visibleWords = Math.floor(progress / this.text.speed)
-				this.text.visible = this.text.parts.slice(0, visibleWords)
-				this.text.hidden = this.text.parts.slice(visibleWords)
+				const visibleWords = Math.floor(progress / this.step2video.text.speed)
+				this.step2video.text.visible = this.step2video.text.parts.slice(0, visibleWords)
+				this.step2video.text.hidden = this.step2video.text.parts.slice(visibleWords)
 			},
 		},
 	}
