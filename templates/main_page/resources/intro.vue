@@ -137,22 +137,22 @@
 				step: 1,
 				counter: 0,
 				step1video: {
-				    preplay: null,
-                    postplay: null,
+					preplay: null,
+					postplay: null,
 					url: null,
 					type: null,
 				},
 				step2video: {
-                    postplay: null,
+					postplay: null,
 					url: null,
 					type: null,
-                    text: {
-                        speed: 2,
-                        string: null,
-                        parts: [],
-                        visible: [],
-                        hidden: [],
-                    },
+					text: {
+						speed: 2,
+						string: null,
+						parts: [],
+						visible: [],
+						hidden: [],
+					},
 				},
 			}
 		},
@@ -163,13 +163,11 @@
 			if (skipIntro) {
 				this.step = 3
 			}
-
 			this.step1video.preplay = externalStorage.step1video.preplay
 			this.step1video.postplay = externalStorage.step1video.postplay
 			this.step1video.url = externalStorage.step1video.url
 			this.step1video.type = externalStorage.step1video.type
-
-            this.step2video.postplay = externalStorage.step2video.postplay
+			this.step2video.postplay = externalStorage.step2video.postplay
 			this.step2video.url = externalStorage.step2video.url
 			this.step2video.type = externalStorage.step2video.type
 			this.step2video.text.string = externalStorage.step2video.text
@@ -201,7 +199,7 @@
 				} else {
 					return 'Перейти к навигации'
 				}
-			}
+			},
 		},
 		methods: {
 			logoClick() {

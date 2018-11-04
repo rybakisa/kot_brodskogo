@@ -1,13 +1,13 @@
 extends ../layouts/default
 block title
-    | {{ video.name }} — Видео
+	| {{ video.name }} — Видео
 block content
-    include ./resources/single-video
+	include ./resources/single-video
 append vendorStyles
-    //- Roboto Slab
-        thin 100
-        light 300
-        regular 400
-        bold 700
-        https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic
-    link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:300&amp;subset=cyrillic' rel='stylesheet')
+	//- Roboto Slab
+		thin 100
+		light 300
+		regular 400
+		bold 700
+		https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700&amp;subset=cyrillic
+	link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:300&amp;subset=cyrillic' rel='stylesheet')

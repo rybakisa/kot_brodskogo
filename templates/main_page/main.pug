@@ -1,46 +1,46 @@
 extends ../layouts/base
 block title
-    |  Главная
+	|  Главная
 block body
-    include ./nav-screen/nav-screen
+	include ./nav-screen/nav-screen
 append styles
-    style#no-js-index.
-        .no-js .navLayer {
-            opacity: 1;
-        }
-        .js .navLayer {
-            opacity: 0;
-        }
-        .js .videoPresentation ~ .navLayer {
-            opacity: 1;
-        }
+	style#no-js-index.
+		.no-js .navLayer {
+			opacity: 1;
+		}
+		.js .navLayer {
+			opacity: 0;
+		}
+		.js .videoPresentation ~ .navLayer {
+			opacity: 1;
+		}
 append vendorStyles
-    // PT Mono
-        regular 400
-    link(href='https://fonts.googleapis.com/css?family=PT+Mono&amp;subset=cyrillic' rel='stylesheet')
+	//- PT Mono
+		regular 400
+	link(href='https://fonts.googleapis.com/css?family=PT+Mono&amp;subset=cyrillic' rel='stylesheet')
 prepend scripts
-    if scenes
-        for scene in scenes
-            if scene.number == 1
-                script#external-storage-video-1.
-                    window['site'].step1video = {
-                        preplay: 650,
-                        postplay: 3700,
-                        url: '{{ scene.file_video.url }}',
-                        type: 'video/mp4',
-                    }
-            if scene.number == 2
-                script#external-storage-video-2.
-                    window['site'].step2video = {
-                        postplay: 4000,
-                        url: '{{ scene.file_video.url }}',
-                        type: 'video/mp4',
-                        text: `{{ scene.html_content }}`,
-                    }
-            //-
-                number: {{ scene.number }}
-                name: {{ scene.name }}
-                file_video: {{ scene.file_video }}
-                file_audio: {{ scene.file_audio }}
-                image: {{ scene.image }}
-                html_content: {{ scene.html_content }}
+	if scenes
+		for scene in scenes
+			if scene.number == 1
+				script#external-storage-video-1.
+					window['site'].step1video = {
+						preplay: 650,
+						postplay: 3700,
+						url: '{{ scene.file_video.url }}',
+						type: 'video/mp4',
+					}
+			if scene.number == 2
+				script#external-storage-video-2.
+					window['site'].step2video = {
+						postplay: 4000,
+						url: '{{ scene.file_video.url }}',
+						type: 'video/mp4',
+						text: `{{ scene.html_content }}`,
+					}
+			//-
+				number: {{ scene.number }}
+				name: {{ scene.name }}
+				file_video: {{ scene.file_video }}
+				file_audio: {{ scene.file_audio }}
+				image: {{ scene.image }}
+				html_content: {{ scene.html_content }}

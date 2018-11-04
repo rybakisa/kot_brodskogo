@@ -10,6 +10,6 @@ insert_final_newline = true
 indent_style = space
 indent_size = 2
 
-[{*.js,.eslintrc,.babelrc,utils/*,source/**/*}]
+[{*.js,.eslintrc,.babelrc,utils/*,**/*.pug,**/*.sass,**/*.js,**/*.vue,**/*.svg}]
 indent_style = tab
 indent_size = 4
