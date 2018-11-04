@@ -1,3 +1,5 @@
+.library
+	margin-top: 4rem
 .libraryTitle
 	margin-top: 0
 	font-family: $font-sans-slab
@@ -66,17 +68,20 @@
 		&:nth-child(8n-7)
 			@extend %library-shelf-item-hover-8
 		&:not(:nth-child(4n))
-			%library-shelf-item-1-4-bordered-layout
-				@media (min-width: 1024px)
-					border-right: 1px solid $border-color
+			&:not(:only-of-type)
+				%library-shelf-item-1-4-bordered-layout
+					@media (min-width: 1024px)
+						border-right: 1px solid $border-color
 		&:not(:nth-child(3n))
-			%library-shelf-item-1-3-bordered-layout
-				@media (min-width: 640px) and (max-width: 1024px - 1)
-					border-right: 1px solid $border-color
+			&:not(:only-of-type)
+				%library-shelf-item-1-3-bordered-layout
+					@media (min-width: 640px) and (max-width: 1024px - 1)
+						border-right: 1px solid $border-color
 		&:not(:nth-child(2n))
-			%library-shelf-item-1-2-bordered-layout
-				@media (min-width: 445px) and (max-width: 640px - 1)
-					border-right: 1px solid $border-color
+			&:not(:only-of-type)
+				%library-shelf-item-1-2-bordered-layout
+					@media (min-width: 445px) and (max-width: 640px - 1)
+						border-right: 1px solid $border-color
 		&--layout
 			@extend %library-shelf-item-1-4-bordered-layout
 			@extend %library-shelf-item-1-3-bordered-layout

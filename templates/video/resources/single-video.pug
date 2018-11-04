@@ -1,4 +1,6 @@
+- url 'video:videos-list' as videos
 .singleVideo-video
 	.responsiveEmbed {{ video.html_emded_code | safe }}
-h2.singleVideo-title {{ video.name }}
+h2.singleVideo-title
+	| #[a(href=videos) {{ 'Видео' }}] &rarr; {{ video.name }}
 .singleVideo-description {{ video.html_description | safe | linebreaks }}

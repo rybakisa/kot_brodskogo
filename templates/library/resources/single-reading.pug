@@ -1,3 +1,6 @@
-h2.libraryTitle {{ reading.name }}
+- url 'library:readings-list' as library
+p: a.singleReading-backLink(href=library) {{ 'Библиотека' }} &rarr;
+header.singleReading-head
+	h2.singleReading-title {{ reading.name }}
 img(src="{{ reading.image_head.url }}")
-.libraryShelf-item-description {{ reading.html_text | safe }}
+.singleReading-content {{ reading.html_text | safe }}

@@ -93,8 +93,7 @@ function addBrowserSyncPlugin() {
 		files: [
 			path.join(config.outputDir, '*.css'),
 			path.join(config.outputDir, '*.js'),
-			// causes reload on styles change, disable for now
-			// path.join(config.outputDir, '*.html'),
+			'**/*.pug',
 		],
 	}, {
 		reload: false,
